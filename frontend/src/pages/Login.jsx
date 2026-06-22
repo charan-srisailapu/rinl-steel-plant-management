@@ -13,9 +13,9 @@ export default function Login() {
   const { login } = useAuth()
   const navigate = useNavigate()
 
-  useEffect(() => {
-    api.get('/health').then(() => setBackendDown(false)).catch(() => setBackendDown(true))
-  }, [])
+useEffect(() => {
+  setBackendDown(false)
+}, [])
 
   const onFinish = async (values) => {
     setLoading(true)
