@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: rinl-steel-plant-backend
+    runtime: python
+    region: ohio
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          type: mysql
+          name: rinl-mysql
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: https://rinl-steel-plant.vercel.app

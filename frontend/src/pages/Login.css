@@ -1,0 +1,48 @@
+@keyframes fadeInSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcALsPo9IcGad9lf0dcIZjyKBeif1efJzdynBhYkwx_egdMPZTlaUpaT3R6507EGcOkG8TKx23Df6i4lNJ0F6D88alN2gRQtghHJM2AcuUtgbSY10hy_PBi4DyzGu5bgBh3IkS1J7T0wj5jynNYXx-mBViTFuMBDM8OvWp_ldCcwKFVnoTZhrBouon_J3_w9JU_AwbqcDuuKFBtZOcuSsACd4g_8S1yh9TyAbFenAEQZani-hDiOslBxoPPuIPSukNW4P6PxXzyMeN');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.login-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 20, 21, 0.45);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.login-card {
+  animation: fadeInSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 10;
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 16px;
+}
+
+.login-card .ant-card {
+  background: rgba(10, 25, 47, 0.75) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
