@@ -1,3 +1,5 @@
+
+
 import { useState, useEffect } from 'react'
 import { Card, Form, Input, Button, Typography, message, Alert } from 'antd'
 import { UserOutlined, LockOutlined, WarningOutlined } from '@ant-design/icons'
@@ -8,6 +10,7 @@ import EmberEffect from '../components/EmberEffect'
 import './Login.css'
 
 export default function Login() {
+    console.log("LOGIN COMPONENT LOADED")
   const [loading, setLoading] = useState(false)
   const [backendDown, setBackendDown] = useState(false)
   const { login } = useAuth()
@@ -18,6 +21,8 @@ useEffect(() => {
 }, [])
 
   const onFinish = async (values) => {
+    console.log("FORM SUBMITTED", values)
+
     setLoading(true)
     try {
       await login(values.username, values.password)
