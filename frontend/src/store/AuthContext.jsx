@@ -38,6 +38,8 @@ const login = async (username, password) => {
   } catch (err) {
     console.error("AUTH ERROR", err)
     console.error("AUTH RESPONSE", err.response)
+    console.error("AUTH MESSAGE", err.message)
+
 
     throw err
   }
