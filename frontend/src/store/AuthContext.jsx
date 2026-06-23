@@ -16,14 +16,32 @@ export function AuthProvider({ children }) {
     setLoading(false)
   }, [])
 
-  const login = async (username, password) => {
-    const res = await api.post('/auth/login', { username, password })
+const login = async (username, password) => {
+  console.log("AUTH LOGIN START")
+
+  try {
+    const res = await api.post('/auth/login', {
+      username,
+      password
+    })
+
+    console.log("AUTH RESPONSE", res.data)
+
     const { access_token, user: userData } = res.data
+
     localStorage.setItem('token', access_token)
     localStorage.setItem('user', JSON.stringify(userData))
+
     setUser(userData)
+
     return userData
+  } catch (err) {
+    console.error("AUTH ERROR", err)
+    console.error("AUTH RESPONSE", err.response)
+
+    throw err
   }
+}
 
   const logout = () => {
     localStorage.removeItem('token')

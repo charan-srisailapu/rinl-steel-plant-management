@@ -22,7 +22,9 @@ useEffect(() => {
 
   const onFinish = async (values) => {
     console.log("FORM SUBMITTED", values)
-
+    console.log("CALLING LOGIN")
+    await login(values.username, values.password)
+    console.log("LOGIN SUCCESS")
     setLoading(true)
     try {
       await login(values.username, values.password)
